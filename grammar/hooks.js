@@ -1,13 +1,10 @@
 const TextFunctions = require('../formulas/functions/text');
 const MathFunctions = require('../formulas/functions/math');
-const TrigFunctions = require('../formulas/functions/trigonometry');
 const LogicalFunctions = require('../formulas/functions/logical');
 const EngFunctions = require('../formulas/functions/engineering');
-const ReferenceFunctions = require('../formulas/functions/reference');
 const InformationFunctions = require('../formulas/functions/information');
 const StatisticalFunctions = require('../formulas/functions/statistical');
 const DateFunctions = require('../formulas/functions/date');
-const WebFunctions = require('../formulas/functions/web');
 const FormulaError = require('../formulas/error');
 const {FormulaHelpers} = require('../formulas/helpers');
 const {Parser, allTokens} = require('./parsing');
@@ -36,18 +33,16 @@ class FormulaParser {
         }, config);
 
         this.onVariable = config.onVariable;
-        this.functions = Object.assign({}, DateFunctions, StatisticalFunctions, InformationFunctions, ReferenceFunctions,
-            EngFunctions, LogicalFunctions, TextFunctions, MathFunctions, TrigFunctions, WebFunctions,
+        this.functions = Object.assign({}, DateFunctions, StatisticalFunctions, InformationFunctions,
+            EngFunctions, LogicalFunctions, TextFunctions, MathFunctions,
             config.functions, config.functionsNeedContext);
         this.onRange = config.onRange;
         this.onCell = config.onCell;
 
         // functions treat null as 0, other functions treats null as ""
         this.funsNullAs0 = Object.keys(MathFunctions)
-            .concat(Object.keys(TrigFunctions))
             .concat(Object.keys(LogicalFunctions))
             .concat(Object.keys(EngFunctions))
-            .concat(Object.keys(ReferenceFunctions))
             .concat(Object.keys(StatisticalFunctions))
             .concat(Object.keys(DateFunctions));
 
