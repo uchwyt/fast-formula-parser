@@ -19,8 +19,8 @@ export interface ParserContext {
 // Cell reference interface
 export interface CellRef {
   sheet?: string;
-  row: number;
-  col: number;
+  row?: number;
+  col?: number;
   address?: string;
 }
 
