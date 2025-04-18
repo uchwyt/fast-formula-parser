@@ -1,4 +1,4 @@
-import FormulaError from '../error';
+import {FormulaError} from '../error';
 import {H, Types, Criteria} from '../helpers';
 import {Infix} from '../operators';
 

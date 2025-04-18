@@ -1,13 +1,25 @@
-const fs = require("fs");
-const chevrotain = require("chevrotain");
-const {Parser} = require("../grammar/parsing");
+import * as fs from 'fs';
+import {createSyntaxDiagramsCode} from 'chevrotain';
+import {Parser} from './parsing';
 
-// extract the serialized grammar.
-const parserInstance = new Parser();
-const serializedGrammar = parserInstance.getSerializedGastProductions();
+/**
+ * Generate syntax diagrams for documentation
+ */
+function generateDiagrams() {
+  // Create a parser instance
+  const parserInstance = new Parser();
 
-// create the HTML Text
-const htmlText = chevrotain.createSyntaxDiagramsCode(serializedGrammar);
+  // Extract the serialized grammar
+  const serializedGrammar = parserInstance.getSerializedGastProductions();
 
-// Write the HTML file to disk
-fs.writeFileSync("./docs/generated_diagrams.html", htmlText);
+  // Create the HTML text
+  const htmlText = createSyntaxDiagramsCode(serializedGrammar);
+
+  // Write the HTML file to disk
+  fs.writeFileSync('./docs/generated_diagrams.html', htmlText);
+
+  console.log('Generated syntax diagrams in ./docs/generated_diagrams.html');
+}
+
+// Execute if run directly
+generateDiagrams();

@@ -1,4 +1,4 @@
-import FormulaError from '../error';
+import {FormulaError} from '../error';
 import {H, Types} from '../helpers';
 
 /**
@@ -139,7 +139,7 @@ function parseDateWithExtra(serialOrString: any): { date: Date, isDateGiven?: bo
 
   serialOrString = H.accept(serialOrString);
   let isDateGiven = true;
-  let date: Date;
+  let date: Date | undefined;
 
   if (!isNaN(serialOrString)) {
     serialOrString = Number(serialOrString);

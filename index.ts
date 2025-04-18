@@ -1,6 +1,6 @@
 import {FormulaParser} from './grammar/hooks';
 import {DepParser} from './grammar/dependency/hooks';
-import FormulaError from './formulas/error';
+import {FormulaError} from './formulas/error';
 import {FormulaHelpers, Types, Factorials, WildCard, Criteria, Address} from './formulas/helpers';
 
 // Constants

@@ -232,11 +232,3 @@ export const Operators = {
   concatOp: ['&'],
   mathOp: ['+', '-', '*', '/', '^'],
 };
-
-// Default exports
-export default {
-  Prefix,
-  Postfix,
-  Infix,
-  Operators
-};

@@ -1,6 +1,6 @@
 // ESBuild configuration
-const esbuild = require('esbuild');
-const { nodeExternalsPlugin } = require('esbuild-node-externals');
+import esbuild from 'esbuild';
+import { nodeExternalsPlugin } from 'esbuild-node-externals';
 
 // Build options
 const commonOptions = {

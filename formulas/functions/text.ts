@@ -1,4 +1,4 @@
-import FormulaError from '../error';
+import {FormulaError} from '../error';
 import {H, Types, WildCard} from '../helpers';
 
 // Type definitions for charsets

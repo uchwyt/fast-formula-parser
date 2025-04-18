@@ -2,8 +2,8 @@
  * Formula Error Class
  * Represents Excel-compatible formula errors with appropriate error codes
  */
-class FormulaError extends Error {
-  private _error: string;
+export class FormulaError extends Error {
+  private _error: string = '';
   details?: object | Error;
 
   // Static error type map
